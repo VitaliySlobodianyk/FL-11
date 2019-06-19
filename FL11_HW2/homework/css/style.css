@@ -221,12 +221,6 @@ section::before {
     background-color: lightskyblue;
     color: white;
 }
-.contact-form input:focus::-webkit-input-placeholder {
-    color: white;
-}
-.contact-form input:focus::-moz-placeholder {
-    color: white;
-}
 .contact-form .mandatory-field::after {
     content: "";
     display: inline-block;
