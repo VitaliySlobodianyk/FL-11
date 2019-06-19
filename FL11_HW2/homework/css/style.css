@@ -113,12 +113,6 @@
     }
 }
 
-
-.tm-main-nav li.tm-nav-item:hover {
-    background-color:#F5F5F5;
-}
-
-
 section,
 .tm-sidebar,
 #home {
@@ -198,6 +192,7 @@ section::before {
 .boxes li.box-work {
     padding: 8px;
 }
+.tm-main-nav li.tm-nav-item:hover,
 .boxes li.box-work:nth-child(even) {
      background-color: #F5F5F5; 
 }
@@ -274,7 +269,7 @@ p.tm-section-description {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+} 
 
 .flex-2-col {
     display: flex;
