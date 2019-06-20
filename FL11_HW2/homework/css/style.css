@@ -111,6 +111,9 @@
         text-indent: 0px !important;
         font-style: normal !important;
     }
+    .tm-banner {
+        background: transparent !important;
+    }
 }
 
 section,
@@ -136,11 +139,6 @@ section,
     animation: rotator 3s 4 alternate ease-in-out;
     animation-delay: 1s;
     filter: drop-shadow(30px 30px 10px rgba(0, 0, 0, 0.2))
-}
-
-.tm-banner-text::first-letter {
-    color: lightskyblue;
-    font-size: 25px;
 }
 
 section::before {
@@ -212,7 +210,8 @@ section::before {
     border-radius: 5px;
 }
 
-.contact-form input:focus {
+.contact-form input:focus,
+.contact-form textarea:focus{
     background-color: lightskyblue;
     color: white;
 }
