@@ -1,0 +1,272 @@
+// Write your styles here
+@mixin setHeight ($height) {
+    height: $height;
+}
+
+@mixin flexStandart($direction:row) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin blockUnderline($width:auto, $height:15px, $marginTop:-10px) {
+    display: block;
+    position: relative;
+    width: $width;
+    height: $height;
+    background-color: $strangeLineColor;
+    margin-top: $marginTop;
+    z-index: -1;
+}
+
+@mixin getFont($fontName) {
+    $fontToInsert: map-get($fonts, $fontName);
+    @if $fontToInsert {
+        font-family: $fontToInsert, map-get($fonts, "usual");
+    }
+    @else {
+        font-family: map-get($fonts, "usual");
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: $bgColor;
+}
+
+.header {
+
+    @include setHeight($headerHeight);
+    @include flexStandart(column);
+    align-items: center;
+    justify-content: center;
+    background: $headerBgPhoto no-repeat;
+    background-size: 100%;
+    border-radius: 0px 0px $headerHeight*0.65 0px;
+
+    &-wrap {
+        @include setHeight($headerHeight*0.8);
+        width: 70%;
+        z-index: 100;
+        padding: 20px;
+    }
+
+
+    &_heading {
+        color: $themeFontColor;
+        font-size: 50px;
+        font-weight: bold;
+        @include getFont("big");
+        width: 350px;
+
+        &::after {
+            content: "";
+            @include blockUnderline(210px, 15px, -25px);
+        }
+    }
+
+    &_text {
+        color: $themeFontColor;
+        width: 100%;
+        text-align: left;
+        @include getFont("small");
+        line-height: 25px;
+        white-space: pre-line;
+    }
+
+}
+
+.landing-logo {
+    margin-top: -20px;
+    width: 90px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    p {
+        @include getFont("small");
+        font-weight: bold;
+        margin-left: 10px;
+        color: $themeFontColor;
+        display: flex;
+        font-size: 30px;
+        flex-direction: column;
+
+        span {
+            font-size: 15px;
+            width: 70px;
+        }
+    }
+}
+
+.header_button {
+    margin-top: 30px;
+    height: 40px;
+    width: 130px;
+    background-color: $btnColor;
+    border: none;
+    color: $btnFontColor;
+    font-weight: bold;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: darken($btnColor, 10%);
+    }
+}
+
+.section {
+    z-index: 10;
+    height: 750px;
+    overflow: visible;
+    @include flexStandart(column);
+    align-items: center;
+
+    .section_text {
+        text-align: center;
+        margin-top: 40px;
+        @include getFont("medium");
+        font-weight: bold;
+        font-size: 30px;
+        color: $themeFontColor;
+
+        &::after {
+            content: "";
+            @include blockUnderline(135px, 10px, -23px);
+            left: 54%;
+        }
+    }
+
+    &_card_wrap {
+        @include flexStandart;
+        align-content: center;
+        width: 80%;
+        justify-content: space-around;
+
+        .section_card {
+            background-color: $placesBgColor;
+            width: 29%;
+            height: 60vh;
+            padding: 2vh;
+            z-index: 10;
+            text-align: center;
+            border-radius: 4px;
+
+
+            &_img {
+                width: 100%;
+
+            }
+
+            &_heading {
+                margin-top: 0;
+                font-weight: bold;
+                display: inline-block;
+                ;
+                width: auto;
+                color: $placesFontColor;
+                @include getFont("medium");
+                font-size: 20px;
+                z-index: -10;
+
+                .section_card_underline {
+                    @include blockUnderline(auto, 10px, -15px);
+                }
+            }
+
+            &_text {
+                margin-top: -4%;
+                color: $placeDescFontColor;
+                text-align: center;
+                line-height: 25px;
+                word-spacing: 4px;
+                hyphens: auto;
+            }
+        }
+    }
+
+    .section_banner {
+        border-radius: 4px;
+        position: relative;
+        bottom: -22%;
+        height: 50px;
+        width: 55%;
+        padding: 3% 5%;
+        background: linear-gradient(45deg, map-get($background,"start"), map-get($background,"end"));
+        @include flexStandart;
+        justify-content: space-between;
+        align-items: center;
+
+        .section_banner_text_wrap {
+            z-index: 10;
+
+            .section_banner_heading {
+                color: $banerHeaderFontColor;
+                @include getFont("big");
+                font-size: 22px;
+                font-weight: bold;
+
+                &::after {
+                    content: "";
+                    @include blockUnderline(45px, 10px, -11px);
+                    left: 30%;
+                }
+            }
+
+            .section_banner_text {
+                margin-top: -5px;
+                color:$banerTextFontColor;
+                @include getFont("small");
+                font-size: 14px;
+            }
+        }
+
+        .section_banner_button {
+            @extend .header_button;
+            margin-top: 0px;
+        }
+    }
+}
+
+.footer {
+
+    height: 150px;
+    background-color:$footerColor;
+    padding: 3%;
+    @include flexStandart;
+    justify-content: center;
+
+    &-wrap {
+        width: 90%;
+        @include flexStandart;
+        justify-content: space-between;
+        align-items: flex-end;
+        @include getFont("small");
+        color: darken($footerFontColor, 15%);
+
+        .footer_logo {
+            p {
+                color: darken($footerFontColor, 15%);
+                font-size: 18px;
+
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .footer_text {
+            display: block;
+            width: 30%;
+            margin-top: 20px;
+            height: 40px;
+        }
+
+        .footer-cr {
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+}

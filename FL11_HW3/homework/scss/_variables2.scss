@@ -1,0 +1,27 @@
+$headerHeight:100vh;
+$headerBgPhoto:  url(../img/m-h-night.jpg)  ;
+$bgColor: #21232E;
+$themeFontColor:#FFFFFF;
+$addThemeFontColor:$themeFontColor;
+$addElementsBgColor:#3B3F50;
+
+$strangeLineColor:#FF4E33;
+
+$placesBgColor:$addElementsBgColor;
+
+$placesFontColor: $themeFontColor;
+$placeDescFontColor: $themeFontColor;
+
+$background:("start":#E2AB01,"end":#922B53);
+
+$banerHeaderFontColor:$themeFontColor;
+$banerTextFontColor:darken($addThemeFontColor,15%);
+
+$fonts:("big": 'Source Sans Pro', "medium":'Hind',"small":'Fresca',"usual":sans-serif );
+
+$btnColor:#E3AC00;
+$btnFontColor:#FFFFFF;
+
+$footerColor:$addElementsBgColor;
+$footerFontColor:#FFFFFF;
+ 
