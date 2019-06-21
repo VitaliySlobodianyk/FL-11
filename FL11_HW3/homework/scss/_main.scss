@@ -1,4 +1,4 @@
-// Write your styles here
+
 @mixin setHeight ($height) {
     height: $height;
 }
@@ -20,12 +20,22 @@
 
 @mixin getFont($fontName) {
     $fontToInsert: map-get($fonts, $fontName);
+
     @if $fontToInsert {
         font-family: $fontToInsert, map-get($fonts, "usual");
     }
     @else {
         font-family: map-get($fonts, "usual");
     }
+}
+@mixin getFontFromVar($fontName) {
+    @if($fontName){
+      font-family: $fontName, map-get($fonts, "usual");
+    }
+    @else{
+        font-family:map-get($fonts, "usual");
+    }
+    
 }
 
 body {
@@ -44,7 +54,8 @@ body {
     align-items: center;
     justify-content: center;
     background: $headerBgPhoto no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
+
     border-radius: 0px 0px $headerHeight*0.65 0px;
 
     &-wrap {
@@ -72,7 +83,7 @@ body {
         color: $themeFontColor;
         width: 100%;
         text-align: left;
-        @include getFont("small");
+        @include getFontFromVar($headerTextFont);
         line-height: 25px;
         white-space: pre-line;
     }
@@ -82,22 +93,25 @@ body {
 .landing-logo {
     margin-top: -20px;
     width: 90px;
-    height: 50px;
-    display: flex;
+    height: 60px;
+    @include flexStandart;
     align-items: center;
-
+    justify-content: center;
+   
+   
     p {
-        @include getFont("small");
+        @include getFontFromVar($logoFont);
         font-weight: bold;
         margin-left: 10px;
+        margin-bottom: 15px;
         color: $themeFontColor;
-        display: flex;
-        font-size: 30px;
-        flex-direction: column;
-
+        font-size: $logoFontSize;  
+        @include flexStandart(column);
+        line-height: 22px;
         span {
-            font-size: 15px;
-            width: 70px;
+            font-size:$logoSubFontSize;
+            width: 100%;
+            text-align: center;
         }
     }
 }
@@ -119,8 +133,7 @@ body {
 
 .section {
     z-index: 10;
-    height: 750px;
-    overflow: visible;
+    height: 720px;
     @include flexStandart(column);
     align-items: center;
 
@@ -142,34 +155,30 @@ body {
     &_card_wrap {
         @include flexStandart;
         align-content: center;
-        width: 80%;
         justify-content: space-around;
+        width: 85%;
 
         .section_card {
             background-color: $placesBgColor;
-            width: 29%;
-            height: 60vh;
-            padding: 2vh;
+            width: 29.25%; 
+            height: 390px;
+            padding: 15px;
             z-index: 10;
             text-align: center;
             border-radius: 4px;
-
+            box-sizing: content-box;
 
             &_img {
                 width: 100%;
-
             }
 
             &_heading {
-                margin-top: 0;
                 font-weight: bold;
                 display: inline-block;
-                ;
-                width: auto;
                 color: $placesFontColor;
                 @include getFont("medium");
                 font-size: 20px;
-                z-index: -10;
+                margin-top: 0px;
 
                 .section_card_underline {
                     @include blockUnderline(auto, 10px, -15px);
@@ -177,12 +186,17 @@ body {
             }
 
             &_text {
-                margin-top: -4%;
+                @include getFont("small");
+                @include  flexStandart(column);
+                justify-content: center;
+                height: 80px;
+                width: 100%;
+                font-weight: 300;       
                 color: $placeDescFontColor;
                 text-align: center;
                 line-height: 25px;
-                word-spacing: 4px;
-                hyphens: auto;
+                word-spacing: 1px;
+                font-size: 15px;  
             }
         }
     }
@@ -190,17 +204,18 @@ body {
     .section_banner {
         border-radius: 4px;
         position: relative;
-        bottom: -22%;
-        height: 50px;
-        width: 55%;
-        padding: 3% 5%;
-        background: linear-gradient(45deg, map-get($background,"start"), map-get($background,"end"));
+        bottom: -18%;
+        height: 45px;
+        width: 50%;
+        padding: 3% 7%;
+        background: linear-gradient(45deg, map-get($background, "start"), map-get($background, "end"));
         @include flexStandart;
         justify-content: space-between;
         align-items: center;
 
         .section_banner_text_wrap {
             z-index: 10;
+            margin-top: -25px;
 
             .section_banner_heading {
                 color: $banerHeaderFontColor;
@@ -217,7 +232,7 @@ body {
 
             .section_banner_text {
                 margin-top: -5px;
-                color:$banerTextFontColor;
+                color: $banerTextFontColor;
                 @include getFont("small");
                 font-size: 14px;
             }
@@ -233,7 +248,7 @@ body {
 .footer {
 
     height: 150px;
-    background-color:$footerColor;
+    background-color: $footerColor;
     padding: 3%;
     @include flexStandart;
     justify-content: center;
@@ -243,16 +258,19 @@ body {
         @include flexStandart;
         justify-content: space-between;
         align-items: flex-end;
-        @include getFont("small");
+        @include getFontFromVar($footerFont); 
         color: darken($footerFontColor, 15%);
 
         .footer_logo {
+            @extend .landing-logo;
+            @include getFontFromVar($footerLogoFont);
+            width: 140px;
             p {
-                color: darken($footerFontColor, 15%);
-                font-size: 18px;
-
+                color: darken($footerFontColor, 20%);
+                font-size: 24px;
                 span {
-                    font-size: 14px;
+                    font-size: 11px;
+                    width: 100%;
                 }
             }
         }

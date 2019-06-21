@@ -13,7 +13,7 @@ body {
   align-items: center;
   justify-content: center;
   background: url(../img/m-h-night.jpg) no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   border-radius: 0px 0px 65vh 0px; }
   .header-wrap {
     height: 80vh;
@@ -43,23 +43,28 @@ body {
     line-height: 25px;
     white-space: pre-line; }
 
-.landing-logo {
+.landing-logo, .footer-wrap .footer_logo {
   margin-top: -20px;
   width: 90px;
-  height: 50px;
+  height: 60px;
   display: flex;
-  align-items: center; }
-  .landing-logo p {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .landing-logo p, .footer-wrap .footer_logo p {
     font-family: "Fresca", sans-serif;
     font-weight: bold;
     margin-left: 10px;
+    margin-bottom: 15px;
     color: #FFFFFF;
-    display: flex;
     font-size: 30px;
-    flex-direction: column; }
-    .landing-logo p span {
-      font-size: 15px;
-      width: 70px; }
+    display: flex;
+    flex-direction: column;
+    line-height: 22px; }
+    .landing-logo p span, .footer-wrap .footer_logo p span {
+      font-size: 13px;
+      width: 100%;
+      text-align: center; }
 
 .header_button, .section .section_banner .section_banner_button {
   margin-top: 30px;
@@ -75,8 +80,7 @@ body {
 
 .section {
   z-index: 10;
-  height: 750px;
-  overflow: visible;
+  height: 720px;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -101,27 +105,26 @@ body {
     display: flex;
     flex-direction: row;
     align-content: center;
-    width: 80%;
-    justify-content: space-around; }
+    justify-content: space-around;
+    width: 85%; }
     .section_card_wrap .section_card {
       background-color: #3B3F50;
-      width: 29%;
-      height: 60vh;
-      padding: 2vh;
+      width: 29.25%;
+      height: 390px;
+      padding: 15px;
       z-index: 10;
       text-align: center;
-      border-radius: 4px; }
+      border-radius: 4px;
+      box-sizing: content-box; }
       .section_card_wrap .section_card_img {
         width: 100%; }
       .section_card_wrap .section_card_heading {
-        margin-top: 0;
         font-weight: bold;
         display: inline-block;
-        width: auto;
         color: #FFFFFF;
         font-family: "Hind", sans-serif;
         font-size: 20px;
-        z-index: -10; }
+        margin-top: 0px; }
         .section_card_wrap .section_card_heading .section_card_underline {
           display: block;
           position: relative;
@@ -131,26 +134,33 @@ body {
           margin-top: -15px;
           z-index: -1; }
       .section_card_wrap .section_card_text {
-        margin-top: -4%;
-        color: #FFFFFF;
+        font-family: "Fresca", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80px;
+        width: 100%;
+        font-weight: 300;
+        color: #cccccc;
         text-align: center;
         line-height: 25px;
-        word-spacing: 4px;
-        hyphens: auto; }
+        word-spacing: 1px;
+        font-size: 15px; }
   .section .section_banner {
     border-radius: 4px;
     position: relative;
-    bottom: -22%;
-    height: 50px;
-    width: 55%;
-    padding: 3% 5%;
+    bottom: -18%;
+    height: 45px;
+    width: 50%;
+    padding: 3% 7%;
     background: linear-gradient(45deg, #E2AB01, #922B53);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
     .section .section_banner .section_banner_text_wrap {
-      z-index: 10; }
+      z-index: 10;
+      margin-top: -25px; }
       .section .section_banner .section_banner_text_wrap .section_banner_heading {
         color: #FFFFFF;
         font-family: "Source Sans Pro", sans-serif;
@@ -188,12 +198,16 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     font-family: "Fresca", sans-serif;
-    color: #d9d9d9; }
-    .footer-wrap .footer_logo p {
-      color: #d9d9d9;
-      font-size: 18px; }
-      .footer-wrap .footer_logo p span {
-        font-size: 14px; }
+    color: #bfbfbf; }
+    .footer-wrap .footer_logo {
+      font-family: "Source Sans Pro", sans-serif;
+      width: 140px; }
+      .footer-wrap .footer_logo p {
+        color: #b3b3b3;
+        font-size: 24px; }
+        .footer-wrap .footer_logo p span {
+          font-size: 11px;
+          width: 100%; }
     .footer-wrap .footer_text {
       display: block;
       width: 30%;
