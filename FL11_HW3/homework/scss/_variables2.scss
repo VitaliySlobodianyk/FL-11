@@ -1,0 +1,31 @@
+$fonts:("big": 'Source Sans Pro', "medium":'Hind', "small":'Fresca', "usual":sans-serif);
+
+$bgColor: #21232E;
+$themeFontColor:#FFFFFF;
+$addThemeFontColor:$themeFontColor;
+$addElementsBgColor:#3B3F50;
+$underlineColor:#FF4E33;
+
+$headerHeight:100vh;
+$headerBgPhoto:url(../img/m-h-night.jpg);
+$headerTextFont:map-get($fonts, "small");
+
+$logoFont:map-get($fonts, "small");
+$logoFontSize:30px;
+$logoSubFontSize:13px;
+
+$placesBgColor:$addElementsBgColor;
+$placesFontColor: $themeFontColor;
+$placeDescFontColor: darken($themeFontColor, 20%);
+
+$background:("start":#E2AB01, "end":#922B53);
+$banerHeaderFontColor:$themeFontColor;
+$banerTextFontColor:darken($addThemeFontColor, 15%);
+
+$btnColor:#E3AC00;
+$btnFontColor:$themeFontColor;
+
+$footerLogoFont:map-get($fonts, "big");
+$footerFont:map-get($fonts, "small");
+$footerColor:$addElementsBgColor;
+$footerFontColor:darken($themeFontColor, 10%);

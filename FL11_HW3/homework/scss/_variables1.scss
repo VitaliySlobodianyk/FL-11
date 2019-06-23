@@ -1,0 +1,32 @@
+$fonts:(big: 'Source Sans Pro', medium:'Hind',small:'Fresca',usual:sans-serif );
+
+$bgColor: #FFFFFF;
+$themeFontColor:#2C2F3C;
+$addThemeFontColor: #FFFFFF;
+$addElementsBgColor:#2C2F3C;
+$underlineColor:#14A0C7;
+
+$headerHeight:100vh;
+$headerBgPhoto:  url(../img/m-h-day.jpg);
+$headerTextFont: map-get($fonts , medium );
+
+$logoFont:map-get($fonts, medium);
+$logoFontSize:27px;
+$logoSubFontSize:13px;
+
+$placesBgColor:$addElementsBgColor; 
+$placesFontColor:$addThemeFontColor ;
+$placeDescFontColor: darken($addThemeFontColor,20%);
+
+$background:(start:#699902,end:#2C5ADC);
+$banerHeaderFontColor:$themeFontColor;
+$banerTextFontColor:darken($addThemeFontColor,20%);
+
+$btnColor:#699900;
+$btnFontColor:#FFFFFF;
+
+$footerLogoFont:map-get($fonts,big);
+$footerFont:map-get($fonts,big);
+$footerColor:$addElementsBgColor;
+$footerFontColor:#FFFFFF;
+
