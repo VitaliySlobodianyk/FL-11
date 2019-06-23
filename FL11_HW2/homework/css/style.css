@@ -215,6 +215,11 @@ section::before {
     background-color: lightskyblue;
     color: white;
 }
+.contact-form input:focus::placeholder,
+.contact-form textarea:focus::placeholder{
+   color: white;
+}
+
 .contact-form .mandatory-field::after {
     content: "";
     display: inline-block;
