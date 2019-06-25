@@ -54,7 +54,7 @@ body {
     justify-content: center;
     background: $headerBgPhoto no-repeat;
     background-size: 100% 100%;
-    border-radius: 0px 0px $headerHeight*0.7 0px;
+    border-radius: 0px 0px $headerHeight*0.8 0px/ 0px 0px $headerHeight*0.5 0px;
 
     &-wrap {
         height: $headerHeight*0.8;
@@ -66,7 +66,7 @@ body {
 
     &_heading {
         color: $themeFontColor;
-        font-size: 50px;
+        font-size: 50px;   
         font-weight: bold;
         @include getFont(big);
         width: 350px;
@@ -135,6 +135,7 @@ body {
     height: 110vh;
     @include flexStandart(column);
     align-items: center;
+    position: relative;
 
     .section_text {
         text-align: center;
@@ -155,6 +156,7 @@ body {
         @include flexStandart;
         align-content: center;
         justify-content: space-around;
+        position: relative;
         width: 85%;
 
         .section_card {
@@ -202,8 +204,8 @@ body {
 
     .section_banner {
         border-radius: 4px;
-        position: relative;
-        bottom: -20%;
+        position: absolute;
+        bottom: -7.5%;
         height: 6vh;
         width: 50%;
         padding: 3% 7%;
