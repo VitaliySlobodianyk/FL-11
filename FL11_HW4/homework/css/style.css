@@ -36,12 +36,12 @@ header {
 
  .description p:nth-of-type(odd) {
     grid-column: 3/4;
-    grid-row: 0/1;
+    grid-row: 1;
     color: #FFFFFF;
 }
 
 .description p:nth-of-type(even) {
-    grid-column: 0/1;
+    grid-column: 1;
     grid-row: 3/4;
     margin-top: -4%;  
 }
