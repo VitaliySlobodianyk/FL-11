@@ -93,9 +93,11 @@ footer {
   color: #556177;
   font-size: 1em;
 }
-
 footer > p {
   width: 13%;
+}
+.copy p{
+  margin: 0%;
 }
 
 .travels {
@@ -257,6 +259,16 @@ footer > p {
 
   .element .img img {
     object-fit: cover;
+  }
+  footer{
+    font-size: 0.9em;
+  }
+  .copy p{
+    margin: 0%;
+  }
+  footer>p{
+    
+    width: 130px;
   }
 }
 @media (max-width: 768px) {
