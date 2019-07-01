@@ -270,7 +270,7 @@ footer>p {
 
 @media (max-width: 1400px) {
     .element {
-        height: 340px;
+       height:360px;
     }
 
     .element .info p {
