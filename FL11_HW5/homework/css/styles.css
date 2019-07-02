@@ -23,7 +23,7 @@ body {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 80px 10fr 80px;
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: 12vh 1fr 12vh;
     background-color: #0b192f;
     padding: 0;
     margin: 0;
@@ -42,6 +42,7 @@ header {
 header h1 {
     color: #fff;
     font-weight: 200;
+    font-size: 2vw;
 }
 
 header h1>span {
@@ -51,7 +52,7 @@ header h1>span {
 header nav {
     margin-right: 5%;
     display: flex;
-    align-items: center;  
+    align-items: center;
     justify-content: space-between;
     height: 100%;
 }
@@ -60,16 +61,17 @@ header nav a {
     color: white;
     text-decoration: none;
     font-weight: 300;
-    font-size: 1.1em;
+    font-size: 1.2vw;
     height: 100%;
     padding: 0% 5%;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
 }
 
 header nav a:hover {
     background-color: #b8b8b83f;
+    transition: 0.2s;
 }
 
 main {
@@ -80,7 +82,6 @@ main {
     grid-gap: 20px;
     box-sizing: border-box;
 }
-
 footer {
     grid-column: 2;
     grid-row: 3;
@@ -91,11 +92,11 @@ footer {
     align-items: center;
     padding: 5%;
     color: #556177;
-    font-size: 1em;
+    font-size: 1.1vw;
 }
 
 footer>p {
-    width: 13%;
+    width: 10vw;
 }
 
 .copy p {
@@ -140,19 +141,19 @@ footer>p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 3em;
+    font-size: 3vw;
     font-weight: 100;
     text-align: center;
     opacity: 0.4;
 }
 
 .element .date span {
-    font-size: 20px;
+    font-size: 1.5vw;
     letter-spacing: 2px;
 }
 
 .element h2 {
-    font-size: 2.5em;
+    font-size: 2.5vw;
     font-weight: 200;
     width: 55%;
     line-height: 0.9em;
@@ -162,40 +163,34 @@ footer>p {
     opacity: 0.5;
     margin-top: -5%;
     width: 100%;
-    font-size: 1em;
+    font-size: 1vw;
     line-height: 1.5em;
+}
+.element .img {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.element img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .element.last-element {
     height: 10%;
 }
-
+.element.last-element .text,
 .element.last-element .info {
-    width: 100%;
-}
-
-.element.last-element .text {
     width: 100%;
 }
 
 .element.last-element h2 {
     width: 90%;
 }
-
 .element.last-element p {
     margin-top: -1%;
-}
-
-.element .img {
-    position: relative;
-    display: flex;
-    width: 50%;
-    height: 100%;
-}
-
-.element img {
-    width: 100%;
-    height: 100%;
 }
 
 .element:nth-of-type(even) {
@@ -214,6 +209,7 @@ footer>p {
 
 .hover-effect:hover {
     opacity: 0.5;
+    transition: 0.4s;
 }
 
 .hover-effect:hover>.date {
@@ -230,6 +226,12 @@ footer>p {
     width: calc(100% - 20px);
 }
 
+.news-item {
+  background-color: white;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .news-item img {
     width: 100%;
 }
@@ -241,7 +243,7 @@ footer>p {
 .news-item h2 {
     font-weight: 300;
     color: #0D1A2F;
-    font-size: 1.8em;
+    font-size: 1.8vw;
 }
 
 .news-item p {
@@ -249,12 +251,7 @@ footer>p {
     font-family: "Roboto", roboto, sans-serif;
     margin-top: -5%;
     line-height: 1.5em;
-}
-
-.news-item {
-    background-color: white;
-    width: 100%;
-    margin-bottom: 20px;
+    font-size: 1vw;
 }
 
 .mobile-menu {
@@ -271,43 +268,15 @@ footer>p {
 }
 
 @media (max-width: 1400px) {
-    .element {
-       height:360px;
-    }
-
-    .element .info p {
-        font-size: 0.9em;
-    }
-
-    .element h2 {
-        font-size: 2.5em;
-        width: 70%;
-    }
-
-    .element .date {
-        font-size: 2.5em;
-    }
-
     .element .img img {
         object-fit: cover;
-    }
-
-    footer {
-        font-size: 0.9em;
-    }
-
-    .copy p {
-        margin: 0%;
-    }
-
-    footer>p {
-        width: 130px;
     }
 }
 
 @media (max-width: 768px) {
     body {
         grid-template-columns: 1px 1fr 1px;
+        grid-template-rows: 20vh 1fr 20vh;
         grid-gap: 3px;
     }
 
@@ -327,16 +296,16 @@ footer>p {
         flex-direction: column-reverse;
         align-items: center;
         justify-content: center;
-        height: 100px;
     }
 
     h1.logo {
-        margin: 0px;
+        font-size: 3.5vw;
     }
 
     header nav {
         justify-content: center;
         margin: 0;
+        padding-top: 2vh;
         height: auto;
     }
 
@@ -350,37 +319,60 @@ footer>p {
         align-items: center;
         height: 25%;
     }
-    .element .img{
-      height: 50%;
-      width: 100%;
+
+    .element .img {
+        height: 50%;
+        width: 100%;
     }
 
     .element:nth-of-type(even) .info,
     .element .info {
         width: 100%;
-        height: 50%;
+        height: 60vh;
         flex-direction: column;
         text-align: left;
     }
-    .element .text{
-      width: 100%;
-      padding: 0% 7%;
+
+    .element .text {
+        width: 100%;
+        padding: 0% 7%;
     }
-    
+    .element .text p{
+      margin: 0%;
+      font-size: 2vw;
+    }
+    .element .info .date{
+      font-size: 5vw;
+    }
+    .element .info .date span{
+      font-size: 2vw;
+    }
+    .element .text h2{
+      font-size: 6vw;
+      width: 90%;
+    }
 
     .element:nth-of-type(even) h2 {
         align-self: flex-start;
     }
+    .news-item h2{
+      font-size: 2.5vw;
+    }
+    .news-item p{
+      font-size: 1.5vw;
+    }
+
     footer {
         flex-direction: column;
         height: 100%;
         justify-content: center;
         align-items: center;
         text-align: center;
+        font-size: 2vw;
     }
-
+    
     footer>p {
-        width: 140px;
+        width: 18vw;
         padding: 0;
         margin: 0;
     }
@@ -396,7 +388,8 @@ footer>p {
 }
 
 @media (max-width: 480px) {
-    body {
+   
+  body {
         grid-template-columns: 1px 1fr 1px;
     }
 
@@ -404,27 +397,39 @@ footer>p {
         display: flex;
         flex-direction: column;
     }
+
     main .news {
         width: 100%;
     }
 
     footer {
-        font-size: 0.9em;
+      font-size: 3vw;
     }
-
-    footer>p {
-        width: 140px;
-        padding: 0;
-        margin: 0;
+    footer>p{
+      width: 25vw;
     }
-
-    footer .copy>p {
-        width: 100%;
-        margin: 0;
-    }
+    h1.logo {
+      font-size: 6vw;
+  }
 
     .element .info h2 {
-        width: 65%;
-        font-size: 2em;
+        width: 90%;
+        font-size: 9vw;
     }
+    .element .info p{
+      font-size: 3vw;
+    }
+    .element .info .date{
+      font-size: 8vw;
+    }
+    .element .info .date span{
+      font-size: 4vw;
+    }
+    .news h2{
+      font-size: 5vw;
+    }
+    .news p{
+      font-size: 3vw;
+      margin: 0;
+    }  
 }
