@@ -169,7 +169,7 @@ let keys = function(object){
 let values = function(object){
     let values =[];
     for (const key in object) {
-      if (object.hasOwnProperty(key)) {
+      if (object.hasOwnProperty(key)){
         values.push(object[key]);        
       }
   }
