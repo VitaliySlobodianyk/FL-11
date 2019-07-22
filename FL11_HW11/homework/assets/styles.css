@@ -1,0 +1,106 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+header{
+    padding:  20px 0px;
+    border-bottom: 5px solid  lightskyblue;
+    text-align: center;
+    color: #47B8FE;
+}
+.notification{
+    display: none;
+}
+ div#root{
+     width: 80%;
+ }
+ .addAction{
+     display: flex;
+ }
+ #activityInput{
+     height: 40px;
+     width: 100%;
+ }
+ #addActivity{
+    color:  #47B8FE;
+    width: 7%;
+}
+#addActivity.enabled:hover{
+    color: rgb(3, 72, 116);
+}
+#addActivity.disabled{
+    color:  grey;
+}
+#addActivity .material-icons{
+font-size: 40px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+ button, button:active, button:focus {
+    outline: none;
+    background-color: transparent;
+    border:none;
+    padding: 0px;
+    margin: 0px;
+  }
+  button{
+      font-size: 35px;
+      color:  #47B8FE;
+      cursor: pointer;
+  }
+.activities{
+    width: 100%;
+    padding: 0;
+}
+.activities li{
+    list-style-type: none;
+    width: 100%;
+    padding: 0px; 
+}
+  
+.activity{
+    display:  flex;
+    align-items: center;
+}
+.activity h2{
+    color: #47B8FE;
+    padding-right: 5px;
+}
+.activity button{
+    height: 50%;
+}
+.activity .delete{
+  margin-left: auto;
+  margin-right: 15px;
+}
+.activity input[type="checkbox"]{
+    display:none;
+}
+
+button.save.editorElement,
+input.editorElement{
+    height: 40px;
+}
+
+.checkboxDone{
+    color: #47B8FE;
+    display: none;
+}
+
+.checkBox{
+    height: 25px;
+    width: 25px;
+    border: 2px solid  lightgrey;
+    margin-right: 5px ;
+}
+
+.dropPlace{
+    outline: 3px dashed #47B8FE;
+}
