@@ -27,6 +27,16 @@
      
     </ul>
   </div>
+<template>
+  <li class="activity" draggable="true">
+    <input type="text" name="activity-editor" class="editorElement">
+    <button class="save editorElement"><i class="material-icons">save</i></button>
+    <label class="checkBox"><i class="material-icons checkboxDone">done</i><input type="checkbox"></label>
+    <h2 class="activityData"></h2>
+    <button class="edit"><i class="material-icons">create</i></button>
+    <button class="delete"><i class="material-icons">delete_forever</i></button>
+  </li>
+</template>
   <script src="./src/app.js">
   </script>
 </body>
