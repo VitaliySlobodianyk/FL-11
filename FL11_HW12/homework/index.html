@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 12 - Simple TODO List</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+  <div id="root">
+    <div class="main">
+      <h1>Simple TODO application</h1>
+      <button class="roundedButton" id="addButton">Add New Task</button>
+      <ul class="activities">
+
+      </ul>
+    </div>
+    <div class="addActivity">
+      <h2>Add Task</h2>
+      <input type="text" name="actitvityData" id="activityInput">
+      <button class="roundedButton cancelSaving">cancel</button>
+      <button class="roundedButton saveActivity" id="addActivity">Save Changes</button>
+    </div>
+    <div class="editActivity">
+      <h2>Modify Item</h2>
+      <input type="text" name="actitvityData" id="activityEditor">
+      <button class="roundedButton cancelSaving">cancel</button>
+      <button class="roundedButton saveActivity" id="editActivity">Save Changes</button>
+    </div>
+
+  </div>
+
+  <div id="customAlert">
+    <h2>Danger!</h2>
+    <p class="alertContent">
+    </p>
+      <button>X</button>
+  </div>
+  <template>
+    <li class="activity">
+      <label> <img src="./assets/img/todo-s.png" alt="ckeckbox" class="unchecked">
+        <img src="./assets/img/done-s.png" alt="ckeckbox" class="checked">
+        <input type="checkbox" name="done"> </label>
+      <h2 class="content"></h2>
+      <button class="delete">  <img src="./assets/img/remove-s.jpg" alt="deleteBut"></button>
+    </li>
+  </template>
+
+  <script src="./src/app.js"></script>
+</body>
+
+</html>

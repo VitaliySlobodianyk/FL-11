@@ -1,0 +1,112 @@
+body{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+#customAlert{
+    width: 250px;
+    color: white;
+    display:none;
+    background-color: #F94A29;
+    padding: 20px;
+    position: fixed;
+    top: 2%;
+}
+#customAlert .alertContent{
+    font-size: 18px;
+    font-weight: bold;
+}
+#customAlert.default{
+    right: 5%;
+}
+#customAlert.chrome{
+    left: 5%;
+}
+#customAlert button{
+   position: absolute;
+   right: 5%;
+   top: 25%;
+   color: white;
+   background-color: transparent;
+   border: none;
+   font-size: 25px;
+   cursor: pointer;
+}
+*{
+    box-sizing: border-box;
+}
+#root{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.main{
+    text-align: center;
+}
+.addActivity, 
+ .editActivity{
+  clear: both;
+ }
+ .addActivity h2,
+ .editActivity h2{
+text-align: center;
+}
+ .addActivity input[type="text"],
+ .editActivity input[type="text"]{
+     width: 100%;
+     margin: 20px 0px;
+     box-sizing: border-box;
+ }
+ .saveActivity{
+    float: right;
+ }
+
+.activities{
+    list-style-type: none;
+}
+.activity{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0px;
+}
+.activity .content{
+    width:80%;
+    height: 80%;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.activity .delete{
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+
+
+.activity .delete,
+.activity .img{
+    height: 100%;
+}
+.activity  input[type="checkbox"]{
+    display:none;
+}
+.roundedButton{
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 20px;
+    padding: 0px 15px;
+}
+
+
+
+
