@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet/less" type="text/css" href="styles/styles.less"/>
+    <script src="js/less.min.js" type="text/javascript"></script> 
+    <link rel="stylesheet" href="styles/bootstrap.min.css">   
+</head >
+<body>
+    <div class="container-fluid">
+     <header class="site-header row ">
+        <nav class="site-header__navbar navbar navbar-expand-sm navbar-light bg-light col-12  px-md-5 px-sm-3 px-1 py-1 py-sm-0 border-bottom  ">
+            <a href="#" class="site-header__logo navbar-brand"><img class="img-fluid" src="/img/logo.png" alt=""></a>     
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse py-2 py-sm-0" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto font-weight-bolder ">
+                <li class="nav-item active px-2 ">
+                  <a class="nav-link" href="#">Classes<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item px-2">
+                  <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link" href="#">Contacts</a>
+                </li>    
+              </ul>         
+            </div>
+          </nav>
+     </header>   
+     <main class="site-main container-fluid"> 
+        <section class="site-main__main-activity row ">
+            <h1 class="site-main__main-activity__article__header section-header col my-4 pb-2 mx-3"> 
+                Yoga Pilates
+            </h1>
+            <div class="w-100"></div>
+            <img src="img/yoga.jpg" alt="" class="site-main__main-activity__image col-lg-8 col-12 " >
+           
+            <article class="site-main__main-activity__article col ml-xl-5 ml-3 pt-4 pt-md-0 " >          
+               <div class="row">
+               <h2 class="site-main__main-activity__article__header pt-3"> 
+                Class description
+               </h2>
+              </div>
+                <p class="site-main__main-activity__article__text row h4 pt-2 mr-lg-1">
+                    This workout uses a series of exercise routines designed to increase your core strength & improve your posture, energy, & flexibility. Pilates work is powered by breath, flow, & centering. By focusing on the mind-body connection & using more efficient form, this workout helps develop a stronger, leaner, healthier body. Appropriate for all fitness levels. 
+                </p>
+                <ul class="site-main__main-activity__article__list row ml-xl-4 ml-3 pt-3 h5">
+                   <li class="site-main__main-activity__article__list__item w-100">
+                    One Personal Trainer
+                   </li>
+                   <li class="site-main__main-activity__article__list__item w-100 ">
+                    Big gym space for training  
+                   </li>
+                   <li class="site-main__main-activity__article__list__item w-100 ">
+                    Free tools & props
+                   </li>
+                   <li class="site-main__main-activity__article__list__item w-100">
+                    Free locker
+                   </li>
+                   <li class="site-main__main-activity__article__list__item w-100 ">
+                    Free before / after shower
+                   </li>
+                </ul>
+            </article>
+         </section>
+         <section class="site-main__additional-activities  row">
+          <h2 class="site-main__additional-activities__header section-header w-100 mx-3 mt-4 pb-2 ">Related classes</h2>
+          
+          <div class="site-main__additional-activities__container mx-2 pt-3 row w-100  ">  
+           
+            <div class="site-main__additional-activities__container__card
+             site-main__additional-activities__container__card--1
+             card bg-danger p-0 col m-2" >
+                <img src="./img/cardio-kickbox.jpg" class="card-img-top w-100 " alt="cardio-kickbox">
+                <div class="card-body  text-center">
+                  <h5 class="site-main__additional-activities__container__card__card-text
+                   card-title text-white ">Cardio kickboxing</h5>
+                </div>
+              </div>
+              
+              <div class="site-main__additional-activities__container__card
+             site-main__additional-activities__container__card--1
+             card bg-primary p-0 col m-2" >
+                <img src="./img/fitness.jpg" class="card-img-top " alt="fitness">
+                <div class="card-body text-center">
+                  <h5 class="site-main__additional-activities__container__card__card-text
+                   card-title text-white mx-auto">Fitness xpress</h5>
+                </div>
+              </div>
+              <div class="w-100 d-block d-sm-none"></div> 
+              
+              <div class="site-main__additional-activities__container__card
+             site-main__additional-activities__container__card--1
+             card bg-warning p-0 col m-2" >
+                <img src="./img/zumba.jpg" class="card-img-top" alt="zumba">
+                <div class="card-body text-center">
+                  <h5 class="site-main__additional-activities__container__card__card-text
+                   card-title text-white">Zumba</h5>
+                </div>
+              </div>
+              
+              <div class="site-main__additional-activities__container__card
+             site-main__additional-activities__container__card--1
+             card bg-success p-0 col m-2 " >
+                <img src="./img/bootcamp.jpg" class="card-img-top" alt="bootcamp">
+                <div class="card-body text-center">
+                  <h5 class="site-main__additional-activities__container__card__card-text
+                   card-title text-white">Bootcamp</h5>
+                </div>     
+              </div>          
+          </div>
+         </section>
+     </main>
+     <footer class="footer-section mt-5 py-3 px-5 mx-3 ">  
+            <h4 class="footer-section__text h4">Epam Front-end lab, 2019 </h4> 
+     </footer>
+    </div>
+    <script src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
