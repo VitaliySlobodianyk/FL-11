@@ -1,4 +1,5 @@
-const Ingredient = function (calories = 0, timesToImplement = 0) {
+const Ingredient = function (name,calories = 0, timesToImplement = 0) {
+    this.name =name;
     this.calories = calories;
     this.timesToImplement = timesToImplement;
     this.add = function () {
@@ -9,52 +10,29 @@ const Ingredient = function (calories = 0, timesToImplement = 0) {
             return false;
         }
     };
-};
-
-const Cheese = function () {
-    this.name = 'cheese';
-    Ingredient.call(this, 120, 1);
     this.implement = function () {
         let calorage = this.add();
         if (calorage) {
             return calorage;
-        } else {
+        } else if(!calorage && timesToImplement===1) {
             console.log(`Sorry,you can add ${this.name} only once!`);
+        }else{
+            console.log(`Sorry,you can add ${this.name} only ${timesToImplement} times`);
         }
     };
     this.info = function () {
-        if (this.timesToImplement === 1) {
-            return 'without cheese';
-        } else {
-            return 'with cheese';
+        if (this.timesToImplement === timesToImplement) {
+            return `without ${this.name}`;
+        } else if (timesToImplement-this.timesToImplement===1) {
+            return `with ${this.name}`;
+        }else{
+            return `with ${timesToImplement-this.timesToImplement} ${this.name}`;
         }
     };
 };
-const Tomato = function () {
-    this.name = 'tomato';
-    Ingredient.call(this, 20, 2);
-    this.implement = function () {
-        let calorage = this.add();
-        if (calorage) {
-            return calorage;
-        } else {
-            console.log(`Sorry,you can add ${this.name} only twice!`);
-        }
-    };
-    this.info = function () {
-        if (this.timesToImplement === 2) {
-            return 'without tomatoes';
 
-        } else if (this.timesToImplement === 1) {
-            return 'with one tomato';
-        } else {
-            return `with ${2 - this.timesToImplement} tomatoes`;
-        }
-    };
-};
-const SecretIngredient = function () {
-    this.name = 'special ingredient';
-    Ingredient.call(this, 100, 1);
+const SecretIngredient = function (calories = 0, timesToImplement = 0) {
+    Ingredient.call(this,'secret ingredient',calories,timesToImplement);
     this.canBeAdded = true;
     this.implement = function () {
         if (this.canBeAdded) {
@@ -70,20 +48,12 @@ const SecretIngredient = function () {
             console.log(`Sorry,you can add ${this.name} only once!`);
         }
     };
-    this.info = function () {
-        if (this.timesToImplement === 0) {
-            return 'with secret ingredient';
-        } else {
-            return 'without secret ingredient';
-        }
-    };
 };
 
-
 const Hamburger = function (type, calories, addSecretIngredient = false) {
-    let cheese = new Cheese();
-    let tomatoes = new Tomato();
-    let secretIng = new SecretIngredient();
+    let cheese = new Ingredient('cheese',120,1);
+    let tomatoes = new Ingredient('tomatoes',20,2);
+    let secretIng = new SecretIngredient(100,1);
     let beaten = 0;
     let that = this;
     this.type = type;
@@ -133,7 +103,7 @@ const Hamburger = function (type, calories, addSecretIngredient = false) {
     let isBeaten = function () {
         if (beaten === 0) {
             return 'hasn\'t been beaten';
-        } else if (beaten === 0) {
+        } else if (beaten === 1) {
             return 'has been beaten one time';
         } else {
             return `has been beaten ${beaten} times`;
