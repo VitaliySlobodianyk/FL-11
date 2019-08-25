@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/posts.css">
+</head>
+<body>
+    <div id="root">
+        <header>
+            <h1>Posts by <span class="author"></span> </h1>
+        </header>
+        <div class="main">
+            <div class="lds-spinner main__spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="posts">
+             
+            </ul>
+        </div>
+    </div>
+    
+    
+    <template id="post">
+       
+        <h2 class="post__title"></h2>
+        <p class="post__body">
+         
+        </p>
+        <h2>Comments:</h2>
+        <ul class="post__comments">
+
+        </ul>    
+    </template>
+
+    <template id="comment">
+        <header>
+                <h3 class="comment__name"></h3>
+                <span>Email:<a href="" class="comment__email"></a></span>
+        </header>
+        <p class="comment__body"></p>
+    </template>
+    <script src="./scripts/common.js"></script>
+    <script src="./scripts/posts.js"></script>
+</body>
+</html>
