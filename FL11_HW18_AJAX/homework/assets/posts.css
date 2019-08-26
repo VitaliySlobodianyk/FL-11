@@ -1,0 +1,29 @@
+li{
+    list-style: none;
+}
+.post{
+ background-color: white;
+ margin: 4% 0%;
+ padding: 3%;
+}
+
+.post__body{
+    text-indent: 1.5em;
+}
+
+.comment{
+    margin: 1% 0%;
+    padding: 1%;
+    background-color: rgba(116, 111, 111, 0.219);
+}
+.comment__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.comment__email{
+    display: block;
+    align-self: flex-start;
+    text-align: left;
+    margin-left: 5%;
+}

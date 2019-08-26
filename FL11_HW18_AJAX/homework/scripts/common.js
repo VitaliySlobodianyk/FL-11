@@ -5,12 +5,6 @@ const myMethods = {
     },
 
 };
-const apiInfo = {
-    users: 'https://jsonplaceholder.typicode.com/users',
-    photos: 'https://pixabay.com/api/?key=13398219-3026fe5aa5feae0ac49e0d14e&q=small+kitten&image_type=photo',
-    posts: 'https://jsonplaceholder.typicode.com/posts',
-    comments: 'https://jsonplaceholder.typicode.com/comments'
-};
 
 const spinnerMethods = {
     hideSpinner: function () {
@@ -20,11 +14,84 @@ const spinnerMethods = {
         pageElements.spinner.style.display = 'block';
     }
 };
-pageWorker = {
-    async fillUsers(string) {
+
+const apiInfo = {
+    users: 'https://jsonplaceholder.typicode.com/users',
+    photos: 'https://pixabay.com/api/?key=13398219-3026fe5aa5feae0ac49e0d14e&q=small+kitten&image_type=photo',
+    posts: 'https://jsonplaceholder.typicode.com/posts',
+    comments: 'https://jsonplaceholder.typicode.com/comments'
+};
+
+const apiWorker = {
+    makeRequest(method, url, callback, data = null, parametrs = []) {
+        spinnerMethods.showSpinner();
+        let request = new XMLHttpRequest();
+        request.onload = () => {
+            if (request.status === 200) {
+                if (callback) {
+                    callback(request.response, ...parametrs);
+                }
+            }
+            else {
+                console.error('Can`t send request!');
+            }
+            spinnerMethods.hideSpinner();
+        };
+        request.open(method, url, true);
+        request.send(data);
+    },
+    usersPageRequest({ method, url, callback, data = null, parametrs = [] }) {
+        pageWorker.hideUsersSection();
+        apiWorker.makeRequest(method, url, callback, data, parametrs);
+        pageWorker.showUsersSection();
+    },
+    postsPageRequest({ method, url, callback, data = null, parametrs = [] }) {
+        apiWorker.makeRequest(method, url, callback, data, parametrs);
+    },
+
+};
+
+const photosWorker = {
+    photos: [],
+     getRandomPhotos(photosResponce, users) {
+        let photosToDownload =  users.length;
+        console.log(`Users${photosToDownload}`);
+        let photosArr =  JSON.parse(photosResponce).hits;
+        let result = [];
+        for (let index = 0; index < photosArr.length && index < photosToDownload; index++) {
+            let url = photosArr.splice(myMethods.randomInteger(0, photosArr.length - 1), 1)[0].webformatURL;
+            let photo =  photosWorker.downloadPhoto(url);
+            result.push(photo);
+        }
+        photosWorker.photos =  result;
+        photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
+    },
+    async downloadPhoto(url) {
+        let data = await fetch(url);
+        data = await data.blob();
+        return await URL.createObjectURL(data);
+    },
+    async fillPhotos(photosArr, usersCollection) {
+        if (photosArr && usersCollection.length <= photosArr.length) {
+            for (let index = 0; index < usersCollection.length && photosArr.length; index++) {
+                usersCollection[index].querySelector('.user_avatar_content').src = await photosArr[index];
+            }
+        } else if (usersCollection.length > photosArr.length) {
+            apiWorker.usersPageRequest({
+                method: 'GET',
+                url: apiInfo.photos,
+                callback: photosWorker.getRandomPhotos,
+                parametrs: [pageElements.users]
+            });
+        }
+    }
+};
+
+let pageWorker = {
+    fillUsers(string) {
         pageElements.usersPlaceHolder.innerHTML = '';
-        let arr = await JSON.parse(string);
-        await Array.prototype.forEach.call(arr, (element => {
+        let arr =  JSON.parse(string);
+         Array.prototype.forEach.call(arr, (element => {
             let user = pageElements.userTemplate.cloneNode(true);
             console.log(element);
             let li = document.createElement('li');
@@ -83,7 +150,7 @@ pageWorker = {
             });
             pageElements.usersPlaceHolder.appendChild(li);
         }));
-        await photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
+            photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
     },
     deleteUser(id) {
         apiWorker.usersPageRequest({
@@ -112,9 +179,9 @@ pageWorker = {
     hideUsersSection() {
         pageElements.usersPlaceHolder.style.display = 'none';
     },
-    async fillPosts(string) {
-        let responce = await JSON.parse(string);
-        Array.prototype.forEach.call(responce, async (data) => {
+     fillPosts(string) {
+        let responce =  JSON.parse(string);
+        Array.prototype.forEach.call(responce, (data) => {
             console.log(data);
             let postNode = pageElements.postTemplate.cloneNode(true);
             let post = document.createElement('li');
@@ -131,83 +198,22 @@ pageWorker = {
             });
         });
     },
-    async fillComments(string, parentElement) {
+     fillComments(string, parentElement) {
         console.log(parentElement);
-        let comments = await JSON.parse(string);
+        let comments = JSON.parse(string);
         let commentsPlace = parentElement.querySelector('.post__comments');
         Array.prototype.forEach.call(comments, (element) => {
+            let li = document.createElement('li');
+            li.classList.add('comment');
             let comment = pageElements.commentTemplate.cloneNode(true);
             comment.querySelector('.comment__name').textContent = element.name;
-            let commentatorEmail = comment.querySelector('.comment__email');
+            let commentatorEmail = comment.querySelector('.comment__email--data');
             commentatorEmail.textContent = element.email;
             commentatorEmail.href = `mailto:${element.email}`;
             comment.querySelector('.comment__body').textContent = element.body;
-            commentsPlace.appendChild(comment);
+            li.appendChild(comment);
+            commentsPlace.appendChild(li);
         });
-
     }
 };
-const apiWorker = {
 
-    makeRequest(method, url, callback, data = null, parametrs = []) {
-        spinnerMethods.showSpinner();
-        let request = new XMLHttpRequest();
-        request.onload = () => {
-            if (request.status === 200) {
-                if (callback) {
-                    callback(request.response, ...parametrs);
-                }
-            }
-            else {
-                console.error('Can`t send request!');
-            }
-            spinnerMethods.hideSpinner();
-        };
-        request.open(method, url, true);
-        request.send(data);
-    },
-    usersPageRequest({ method, url, callback, data = null, parametrs = [] }) {
-        pageWorker.hideUsersSection();
-        apiWorker.makeRequest(method, url, callback, data, parametrs);
-        pageWorker.showUsersSection();
-    },
-    postsPageRequest({ method, url, callback, data = null, parametrs = [] }) {
-        apiWorker.makeRequest(method, url, callback, data, parametrs);
-    },
-
-};
-const photosWorker = {
-    photos: [],
-    async getRandomPhotos(photosResponce, users, counter = 5) {
-        let photosToDownload = await users.length;
-        console.log(`Users${photosToDownload}`);
-        let photosArr = await JSON.parse(photosResponce).hits;
-        let result = [];
-        for (let index = 0; index < photosArr.length && index < photosToDownload; index++) {
-            let url = photosArr.splice(myMethods.randomInteger(0, photosArr.length - 1), 1)[0].webformatURL;
-            let photo = await photosWorker.downloadPhoto(url);
-            await result.push(photo);
-        }
-        photosWorker.photos = await result;
-        await photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
-    },
-    async downloadPhoto(url) {
-        let data = await fetch(url);
-        data = await data.blob();
-        return await URL.createObjectURL(data);
-    },
-    async fillPhotos(photosArr, usersCollection) {
-        if (photosArr && usersCollection.length <= photosArr.length) {
-            for (let index = 0; index < usersCollection.length && photosArr.length; index++) {
-                usersCollection[index].querySelector('.user_avatar_content').src = await photosArr[index];
-            }
-        } else if (usersCollection.length > photosArr.length) {
-            apiWorker.usersPageRequest({
-                method: 'GET',
-                url: apiInfo.photos,
-                callback: photosWorker.getRandomPhotos,
-                parametrs: [pageElements.users]
-            });
-        }
-    }
-};

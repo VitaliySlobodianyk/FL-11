@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cattiter</title>
     <link rel="stylesheet" href="./assets/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -38,34 +37,49 @@
     </div>
 
     <template id="user_template">
-       
-            <div class="user__avatar">
-              <img src="" alt="avatar" class="user_avatar_content">
+
+        <div class="user__avatar">
+            <img src="" alt="avatar" class="user_avatar_content">
+        </div>
+        <div class="user__info">
+            <h2 class="user__name mainElement">
+
+            </h2>
+            <label class="user__name editorElement">
+                <span>Name:</span>
+                <input type="email" name="email" class="content">
+            </label>
+            <div class="user__email mainElement">
+                <span>Email:</span>
+                <a href="" class="content"></a>
             </div>
-            <div class="user__info">            
-                <h2 class="user__name mainElement">
-                  
-                </h2>
-                <label class="user__name editorElement"><span>Name:</span></h3><input type="email" name="email" class="content"></label>
-                <div class="user__email mainElement">
-                   <span>Email:</span><a href="" class="content"></a>
-                </div>
-                <label class="user__email editorElement"><span>Email</span><input type="email" name="email" class="content"></label>
-                <div class="user__website mainElement">
-                    <span>Website:</span><a href="" class="content"></a>
-                 </div>
-                 <label class="user__website editorElement"><span>Website:</span><input type="text" name="website" class="content"></label>
-                 <div class="user__phone mainElement">
-                    <span>Phone:</span><span class="content"></span>
-                 </div>
-                 <label class="user__phone editorElement"><span>Phone:</span><input type="tel" name="phone" class="content" ></label>
+            <label class="user__email editorElement">
+                <span>Email</span>
+                <input type="email" name="email" class="content">
+            </label>
+            <div class="user__website mainElement">
+                <span>Website:</span>
+                <a href="" class="content"></a>
             </div>
-            <div class="user__service">
-                    <button class="edit mainElement"><i class="material-icons">create</i></button>
-                    <button class="delete mainElement"><i class="material-icons">delete_forever</i></button>
-                    <button class="cancel editorElement"><i class="material-icons">not_interested</i></button>
-                    <button class="save editorElement"><i class="material-icons">save</i></button>        
+            <label class="user__website editorElement">
+                <span>Website:</span>
+                <input type="text" name="website" class="content">
+            </label>
+            <div class="user__phone mainElement">
+                <span>Phone:</span>
+                <span class="content"></span>
             </div>
+            <label class="user__phone editorElement">
+                <span>Phone:</span>
+                <input type="tel" name="phone" class="content">
+            </label>
+        </div>
+        <div class="user__service">
+            <button class="edit mainElement"><i class="material-icons">create</i></button>
+            <button class="delete mainElement"><i class="material-icons">delete_forever</i></button>
+            <button class="cancel editorElement"><i class="material-icons">not_interested</i></button>
+            <button class="save editorElement"><i class="material-icons">save</i></button>
+        </div>
     </template>
     <script src="./scripts/common.js"></script>
     <script src="./scripts/main.js"></script>

@@ -34,26 +34,25 @@
         </div>
     </div>
     
-    
-    <template id="post">
-       
+    <template id="post">   
         <h2 class="post__title"></h2>
         <p class="post__body">
          
         </p>
-        <h2>Comments:</h2>
+        <h3>Comments:</h3>
         <ul class="post__comments">
 
         </ul>    
     </template>
 
     <template id="comment">
-        <header>
+        <header class="comment__header">
                 <h3 class="comment__name"></h3>
-                <span>Email:<a href="" class="comment__email"></a></span>
+                <span class="comment__email">Email:<a href="" class="comment__email--data"></a></span>
         </header>
         <p class="comment__body"></p>
     </template>
+    
     <script src="./scripts/common.js"></script>
     <script src="./scripts/posts.js"></script>
 </body>
