@@ -140,7 +140,8 @@ let pageWorker = {
                         name: nameInput.value,
                         phone: phoneInput.value,
                         website: websiteInput.value,
-                    }
+                    }),
+                    parametrs: ['User Updated']
                 });
                 apiWorker.usersPageRequest({
                     method: 'GET',
