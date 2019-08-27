@@ -2,8 +2,7 @@ const myMethods = {
     randomInteger(min, max) {
         let rand = min + Math.random() * (max + 1 - min);
         return Math.floor(rand);
-    },
-
+    }
 };
 
 const spinnerMethods = {
@@ -31,8 +30,7 @@ const apiWorker = {
                 if (callback) {
                     callback(request.response, ...parametrs);
                 }
-            }
-            else {
+            } else {
                 console.error('Can`t send request!');
             }
             spinnerMethods.hideSpinner();
@@ -40,30 +38,40 @@ const apiWorker = {
         request.open(method, url, true);
         request.send(data);
     },
-    usersPageRequest({ method, url, callback, data = null, parametrs = [] }) {
+    usersPageRequest({
+        method,
+        url,
+        callback,
+        data = null,
+        parametrs = []
+    }) {
         pageWorker.hideUsersSection();
         apiWorker.makeRequest(method, url, callback, data, parametrs);
         pageWorker.showUsersSection();
     },
-    postsPageRequest({ method, url, callback, data = null, parametrs = [] }) {
+    postsPageRequest({
+        method,
+        url,
+        callback,
+        data = null,
+        parametrs = []
+    }) {
         apiWorker.makeRequest(method, url, callback, data, parametrs);
     },
-
 };
 
 const photosWorker = {
     photos: [],
-     getRandomPhotos(photosResponce, users) {
-        let photosToDownload =  users.length;
-        console.log(`Users${photosToDownload}`);
-        let photosArr =  JSON.parse(photosResponce).hits;
+    getRandomPhotos(photosResponce, users) {
+        let photosToDownload = users.length;
+        let photosArr = JSON.parse(photosResponce).hits;
         let result = [];
         for (let index = 0; index < photosArr.length && index < photosToDownload; index++) {
             let url = photosArr.splice(myMethods.randomInteger(0, photosArr.length - 1), 1)[0].webformatURL;
-            let photo =  photosWorker.downloadPhoto(url);
+            let photo = photosWorker.downloadPhoto(url);
             result.push(photo);
         }
-        photosWorker.photos =  result;
+        photosWorker.photos = result;
         photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
     },
     async downloadPhoto(url) {
@@ -90,23 +98,25 @@ const photosWorker = {
 let pageWorker = {
     fillUsers(string) {
         pageElements.usersPlaceHolder.innerHTML = '';
-        let arr =  JSON.parse(string);
-         Array.prototype.forEach.call(arr, (element => {
+        let arr = JSON.parse(string);
+        Array.prototype.forEach.call(arr, (element => {
             let user = pageElements.userTemplate.cloneNode(true);
-            console.log(element);
+            
             let li = document.createElement('li');
             li.classList.add('user');
             li.id = `user_${element.id}`;
             li.appendChild(user);
+            
             let userName = li.querySelector('.user__name.mainElement');
-            userName.textContent = element.name;
             let userEmail = li.querySelector('.user__email.mainElement a');
+            let userWebsite = li.querySelector('.user__website.mainElement a');
+            let userPhone = li.querySelector('.user__phone.mainElement .content');
+
+            userName.textContent = element.name;
             userEmail.textContent = element.email;
             userEmail.href = `mailto:${element.email}`;
-            let userWebsite = li.querySelector('.user__website.mainElement a');
             userWebsite.textContent = element.website;
             userWebsite.href = `http://${element.website}`;
-            let userPhone = li.querySelector('.user__phone.mainElement .content');
             userPhone.textContent = element.phone;
 
             let nameInput = li.querySelector('.user__name.editorElement input');
@@ -114,7 +124,7 @@ let pageWorker = {
             let websiteInput = li.querySelector('.user__website.editorElement input');
             let phoneInput = li.querySelector('.user__phone.editorElement input');
 
-            li.querySelector('.delete').addEventListener('click', (e) => {
+            li.querySelector('.delete').addEventListener('click', () => {
                 pageWorker.deleteUser(element.id);
             });
             li.querySelector('.edit').addEventListener('click', () => {
@@ -127,7 +137,7 @@ let pageWorker = {
             li.querySelector('.cancel').addEventListener('click', () => {
                 pageWorker.elementsSwitcher(li, '.mainElement', '.editorElement');
             });
-            userName.addEventListener('click', (e) => {
+            userName.addEventListener('click', () => {
                 window.location.href = `./posts.html#userId=${element.id}`;
             });
             li.querySelector('.save').addEventListener('click', () => {
@@ -135,7 +145,7 @@ let pageWorker = {
                     method: 'PATCH',
                     url: `${apiInfo.users}/${element.id}`,
                     callback: console.log,
-                    data: {
+                    data: JSON.stringify({
                         email: emailInput.value,
                         name: nameInput.value,
                         phone: phoneInput.value,
@@ -151,12 +161,14 @@ let pageWorker = {
             });
             pageElements.usersPlaceHolder.appendChild(li);
         }));
-            photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
+        photosWorker.fillPhotos(photosWorker.photos, pageElements.users);
     },
     deleteUser(id) {
         apiWorker.usersPageRequest({
             method: 'DELETE',
-            url: `${apiInfo.users}/${id}`
+            url: `${apiInfo.users}/${id}`,
+            callback: () => console.log(`Deleted User, ID:${id}`),
+            parametrs: []
         });
         apiWorker.usersPageRequest({
             method: 'GET',
@@ -180,10 +192,9 @@ let pageWorker = {
     hideUsersSection() {
         pageElements.usersPlaceHolder.style.display = 'none';
     },
-     fillPosts(string) {
-        let responce =  JSON.parse(string);
+    fillPosts(string) {
+        let responce = JSON.parse(string);
         Array.prototype.forEach.call(responce, (data) => {
-            console.log(data);
             let postNode = pageElements.postTemplate.cloneNode(true);
             let post = document.createElement('li');
             post.classList.add('post');
@@ -199,8 +210,7 @@ let pageWorker = {
             });
         });
     },
-     fillComments(string, parentElement) {
-        console.log(parentElement);
+    fillComments(string, parentElement) {
         let comments = JSON.parse(string);
         let commentsPlace = parentElement.querySelector('.post__comments');
         Array.prototype.forEach.call(comments, (element) => {
@@ -217,4 +227,3 @@ let pageWorker = {
         });
     }
 };
-
