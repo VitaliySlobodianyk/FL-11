@@ -1,6 +1,5 @@
 import './styles';
-import './library.js';
-// CSS (example)
-// import './assets/css/main.css'
-import './modules/logic.js';
-import './modules/page.js';
+import './library';
+import './modules/logic';
+import './modules/pageComponents';
+import './modules/core';

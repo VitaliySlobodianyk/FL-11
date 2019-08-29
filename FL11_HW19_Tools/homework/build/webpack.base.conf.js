@@ -1,9 +1,11 @@
 const path = require('path');
 const fs = require('fs');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const PrettierPlugin = require('prettier-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, '../src'),
@@ -13,8 +15,6 @@ const PATHS = {
   img: 'img/'
 };
 
-// Pages const for HtmlWebpackPlugin
-// see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 const PAGES_DIR = PATHS.src;
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'));
 
@@ -24,18 +24,30 @@ module.exports = {
     paths: PATHS
   },
   entry: {
-    app: `${PATHS.src}/js`,
+    app: `${PATHS.src}/js`
   },
   output: {
     filename: `${PATHS.js}/[name].js`,
     path: PATHS.dist,
     publicPath: '/'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendors',
+          test: /node_modules/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
   module: {
     rules: [{
       test: /\.js$/,
-      loader: 'babel-loader',
-      exclude: '/node_modules/'
+      exclude: '/node_modules/',
+      use: ['babel-loader', 'eslint-loader']
     },
     {
       test: /\.(jpg|gif|svg|png)$/,
@@ -49,14 +61,12 @@ module.exports = {
         'style-loader',
         MiniCssExtractPlugin.loader,
         {
-          loader: 'css-loader',
-          options: { }
+          loader: 'css-loader'
         }, {
           loader: 'postcss-loader',
           options: { config: { path: `./postcss.config.js` } }
         }, {
-          loader: 'sass-loader',
-          options: {  }
+          loader: 'sass-loader'
         }
       ]
     }, {
@@ -76,20 +86,26 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `${PATHS.css}[name].css`,
+      filename: `${PATHS.css}[name].css`
     }),
     new CopyWebpackPlugin([
-      { from: `${PATHS.src}/img`, to: `${PATHS.img}` },
+      { from: `${PATHS.src}/img`, to: `${PATHS.img}`}
     ]),new ImageminPlugin({
       test: /\.(jpg|png|gif|svg)$/i,
       disable: process.env.NODE_ENV !== 'production' // Disable during development
     }),
-    // Automatic creation any html pages (Don't forget to RERUN dev server)
-    // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
-    // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
+    new PrettierPlugin({
+        printWidth: 120,               
+        tabWidth: 2,                  
+        useTabs: false,              
+        semi: true,   
+        singleQuote:true,               
+        encoding: 'utf-8',            
+        extensions: [ '.js' ] 
+    }), 
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page}`
     }))
-  ],
+  ]
 };
