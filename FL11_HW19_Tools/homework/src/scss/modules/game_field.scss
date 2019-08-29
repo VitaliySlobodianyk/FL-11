@@ -1,0 +1,65 @@
+.game{
+    display: flex;
+    background-color: $light-color ;
+    padding: 2%;
+    .log{
+        width: 30%;
+        height: 320px;
+        display: table;
+
+        li{
+            font-size: rem(18);
+        }
+       
+    &__header{
+        height: 10%;
+        font-weight: bold;
+        text-align: center;
+        border: 2px solid $default-color;
+        border-bottom: none;
+    }
+    &__list{   
+        border: 2px solid $default-color;
+        height: 85%;
+        list-style-type: circle;
+        padding-left: 7%;
+        overflow-y:auto;
+         li{
+            list-style-type: circle;
+            padding:3%;
+         }
+    }
+    }
+    .game__field{
+       width: 70%;
+        display: flex;
+        flex-direction: column;
+        height: 320px;
+        .main__field{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80%;
+            }
+            .versus{
+                width: 15%;
+                font-size: rem(40);
+                text-align: center;
+            }    
+    }
+    .info__field{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 20%;
+        .info__field__text{
+        padding: 1%;
+            .info__field--prefix{
+               width: 25%;
+               text-align: center;
+               padding: 0 3%;
+               color:$neutral-regular ;
+           }
+        }
+    }
+}

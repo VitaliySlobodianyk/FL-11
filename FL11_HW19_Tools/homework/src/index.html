@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Webpack Template</title>
+</head>
+
+<body>
+
+  <!-- main wrapper -->
+  <div class="wrapper">
+    <!-- #app wrapper for vue -->
+    <div id="app">
+
+      <header class="header">
+        <h1 class="header__heading">Rock, Paper and Scissors</h1>
+        <div class="header__rules">
+          <h3 class="header__rules__heading">The rules are simple:</h3>
+          <ul class="header__rules__list">
+            <li><i class="fas fa-hand-scissors"></i> beats <i class="fas fa-hand-paper"></i></li>
+            <li><i class="fas fa-hand-paper"></i> beats <i class="fas fa-hand-rock"></i></li>
+            <li><i class="fas fa-hand-rock"></i> beats <i class="fas fa-hand-scissors"></i></li>
+          </ul>
+        </div>
+        <h3 class="header__heading--rule">And we play up to tree times!</h3>
+      </header>
+      <main>
+        <section class="game">
+          <div class="log">
+            <h3 class="log__header">Battle log</h3>
+            <ul class="log__list">
+            
+            </ul>
+          </div>
+            <div class="game__field">
+              <div class="main__field">
+                <div class="player__card">             
+                  <h3 class="card__header">You:</h3>
+                  <div class="character__container">
+                      <div class="character" id="player-rock">
+                          <i class="fas fa-hand-rock"></i>
+                      </div>
+                      <div class="character" id="player-paper">
+                          <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <div class="character" id="player-scissors">
+                            <i class="fas fa-hand-scissors"></i>
+                        </div>
+                  </div>
+                </div>
+                <h2 class="versus">VS</h2>
+                <div class="computer__card">   
+                    <h3 class="card__header">Computer:</h3>          
+                  <div class="character__container ">
+                      <div id="floatingCircles">
+                          <div class="f_circleG" id="frotateG_01"></div>
+                          <div class="f_circleG" id="frotateG_02"></div>
+                          <div class="f_circleG" id="frotateG_03"></div>
+                          <div class="f_circleG" id="frotateG_04"></div>
+                          <div class="f_circleG" id="frotateG_05"></div>
+                          <div class="f_circleG" id="frotateG_06"></div>
+                          <div class="f_circleG" id="frotateG_07"></div>
+                          <div class="f_circleG" id="frotateG_08"></div>
+                        </div>  
+                    <div class="character" id="computer-rock">
+                          <i class="fas fa-hand-rock"></i>
+                    </div>
+                      <div class="character" id="computer-paper">
+                          <i class="fas fa-hand-paper"></i>
+                      </div>
+                      <div class="character" id="computer-scissors">
+                            <i class="fas fa-hand-scissors"></i>
+                      </div>
+                  </div>
+                </div>
+              </div>
+               <div class="info__field">
+                 <h3 class="info__field__text">
+                   <span class="info__field--prefix">
+                     Message:
+                   </span>
+                  <span class="info__field--content">
+                       Choose sign and play!
+                  </span>
+                 </h3>
+               </div>
+            </div>
+        </section>
+        <section class="user__interaction">
+          <div class="game__controls">
+            <button class="game_button" id="rock">
+                <i class="fas fa-hand-rock"></i>
+            </button>
+            <button class="game_button" id="paper">
+                <i class="fas fa-hand-paper"></i>
+            </button>
+            <button class="game_button" id="scissors">
+                <i class="fas fa-hand-scissors"></i>
+            </button>
+          
+          </div>
+          <div class="service__controls">
+                  <button type="reset" id="reset_but">Reset</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+</body>
+
+</html>
