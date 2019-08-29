@@ -87,7 +87,6 @@ let game = new Game();
 
 Array.prototype.forEach.call(gameButtons.buttons,(element)=>{
     element.addEventListener('click',()=>{
-       console.log('click');
        computerCards.hideAllCards();
        spinner.show();
         userCards.hideAllCards();
