@@ -1,4 +1,23 @@
+$closeButtnColor: rgb(194, 35, 35);
+
 .item{
     display: flex;
     justify-content: space-between;
+    height: 20px;
+    align-items: center;
+}
+.itemName{
+    display: inline-block;
+}
+.price{
+    align-self: flex-start;
+}
+.close{
+    color:$closeButtnColor ;
+    cursor: pointer;
+}
+
+.close:hover{
+    text-shadow:1px 1px darken($color: $closeButtnColor, $amount: 20);
+
 }

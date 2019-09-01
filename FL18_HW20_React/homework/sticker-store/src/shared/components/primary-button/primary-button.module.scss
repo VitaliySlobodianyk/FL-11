@@ -5,11 +5,15 @@ $btnTextColor: #FFF;
     padding: 10px 20px;
     border-radius: 5px;
     color:$btnTextColor;
+    cursor: pointer;
+}
+.primaryButton:hover{
+    background-color: darken($color: $btnColor, $amount: 15) ;
 }
 .primaryButton:disabled{
     background-color: lightgray;
+    cursor: not-allowed;
 }
-
 .text{
     margin-right: 5%;
 }

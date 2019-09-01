@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 export function Star(props) {
     if(props.fillnes=== 1){
     return (
-        <div className={classes.usual,classes.star}>
+        <div className={classes.star}>
             &#x2605;
         </div>
     )

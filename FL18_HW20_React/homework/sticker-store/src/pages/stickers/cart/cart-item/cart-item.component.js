@@ -5,9 +5,14 @@ import  classes from './cart-item.module.scss';
 export function CartItem(props) {
     return (
         <div className={classes.item}>
+           <h4 className={classes.itemName}>
            {props.title}
-           {props.price}$
-           <div onClick={() => props.remove(props.id)}>
+           </h4>
+           -
+           <span className={classes.price}>
+             {props.price}$
+           </span>
+           <div onClick={() => props.remove(props.id)} className={classes.close}>
                X
            </div>
         </div>

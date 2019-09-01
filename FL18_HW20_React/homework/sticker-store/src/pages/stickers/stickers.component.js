@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import { ProductInfo } from './product-info';
 import classes from './stickers.module.scss';
 import { StickerContainer } from './sticker-container';
@@ -21,7 +20,7 @@ export class Stickers extends React.Component {
     }
 
     getDataFromCard(data) {
-        if (data != this.state.selectedCard) {
+        if (data !== this.state.selectedCard) {
             this.setState(
                 {
                     selectedCard: data

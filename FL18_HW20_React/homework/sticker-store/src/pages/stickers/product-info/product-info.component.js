@@ -41,12 +41,14 @@ export class ProductInfo extends React.Component {
                             })
                         }
                     </div>
-                    <PrimaryButton
+                   <div className={classes.btnWrapper}>
+                   <PrimaryButton
                         InitialDisabled={this.state.data.state.taken}
                         text={'Buy'}
                         price={this.state.data.props.price}
                         clickHandler={this.onClick}
                     />
+                   </div>   
                 </div>
             )
         }
