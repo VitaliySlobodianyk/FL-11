@@ -1,0 +1,13 @@
+$starColor: #F5D108;
+
+.star{
+    font-size: 1.5rem;
+    color:$starColor;
+    position: relative;
+}
+.filled{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}

@@ -1,0 +1,1 @@
+export {StickerCard} from './sticker-card.component';

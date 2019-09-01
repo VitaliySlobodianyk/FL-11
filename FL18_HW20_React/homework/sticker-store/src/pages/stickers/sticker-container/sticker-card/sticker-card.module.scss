@@ -1,0 +1,19 @@
+$bgColor:#F2F1F1;
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 27%;
+    height: 150px;
+    padding: 20px 0%;
+    margin: 10px;
+    background-color:  $bgColor;
+    overflow: hidden;
+    border-radius: 5%;
+}
+.header{
+    font-size: 1rem;
+    height: 20%;
+    text-align: center;
+}

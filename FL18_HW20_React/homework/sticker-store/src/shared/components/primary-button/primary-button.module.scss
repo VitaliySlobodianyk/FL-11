@@ -1,0 +1,15 @@
+$btnColor: #0099FF;
+$btnTextColor: #FFF;
+.primaryButton{
+    background-color: $btnColor;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color:$btnTextColor;
+}
+.primaryButton:disabled{
+    background-color: lightgray;
+}
+
+.text{
+    margin-right: 5%;
+}
