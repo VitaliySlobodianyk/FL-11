@@ -16,40 +16,40 @@ export class Cart extends React.Component {
         this.removeItem = this.removeItem.bind(this);
         this.renderCartItems = this.renderCartItems.bind(this);
     }
+    
     addItem(item) {
-       this.setState( state =>{
-        state.items.push(item);
-           return{
-            price: state.price+item.props.price,
-            items: state.items
-           }
-       });
-        
+        this.setState(state => {
+            state.items.push(item);
+            return {
+                price: state.price + item.props.price,
+            }
+        });
     }
+
     clearAllItems() {
         alert('Purchase has been completed');
-        this.state.items.forEach(element => 
-            element.state.taken = false
-        );
-        this.setState({
-            price: 0,
-            items: []
+        this.setState(state => {
+            state.items.forEach(element =>
+                element.state.taken = false);
+            this.props.sendRefreshStatus(true);
+            return {
+                price: 0,
+                items: []
+            };
         });
-        this.props.sendRefreshStatus(true);
     }
 
     removeItem(itemId) {
-        let element = this.state.items.splice(this.state.items.findIndex(
-            element => element.props.id === itemId   
-        ), 1)[0];
-        element.state.taken = false;
-        this.props.sendRefreshStatus(false);
-        this.setState( state =>{
-               return{
+        this.setState(state => {
+            let element = state.items.splice(state.items.findIndex(
+                element => element.props.id === itemId
+            ), 1)[0];
+            element.state.taken = false;
+            this.props.sendRefreshStatus(false);
+            return {
                 price: state.price - element.props.price,
-                items: state.items
-               }
-           });
+            }
+        });
     }
 
     renderCartItems() {

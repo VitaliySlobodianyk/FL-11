@@ -51,10 +51,7 @@ export class ProductInfo extends React.Component {
             </div>
         )
     }
-
 }
-
-
 
 ProductInfo.propTypes = {
     data: PropTypes.object,

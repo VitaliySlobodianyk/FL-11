@@ -12,38 +12,31 @@ export class Stickers extends React.Component {
             selectedCard: null,
         };
 
-        this.getDataFromCard = this.getDataFromCard.bind(this);
-        this.cardBought = this.cardBought.bind(this);
-        this.getData = this.getData.bind(this);
+        this.cardClicked = this.cardClicked.bind(this);
         this.itemAdded = this.itemAdded.bind(this);
         this.refreshPage=this.refreshPage.bind(this);
     }
 
-    getDataFromCard(data) {
-        if (data !== this.state.selectedCard) {
+    cardClicked(card,isBought) {  
+        if (card !== this.state.selectedCard) {
             this.setState(
                 {
-                    selectedCard: data
+                    selectedCard: card
                 }
             );
         }
-    }
-
-    cardBought(card) {  
+        if(isBought){
             this.setState(
                 {
                     selectedCard: card
                 }
             );
             this.addItem(card); 
+        }   
     }
 
     itemAdded(bindedFunc) {
         this.addItem = bindedFunc;
-    }
-
-    getData(bindedState) {
-        this.header = bindedState;
     }
     
     refreshPage(fully) {
@@ -70,8 +63,7 @@ export class Stickers extends React.Component {
                     />
 
                     <StickerContainer
-                        cardHandler={this.getDataFromCard}
-                        cardSelected={this.cardBought}
+                        cardHandler={this.cardClicked}
                     />
 
                 </div>

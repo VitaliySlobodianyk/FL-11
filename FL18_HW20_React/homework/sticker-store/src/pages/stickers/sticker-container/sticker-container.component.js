@@ -12,21 +12,16 @@ export class StickerContainer extends React.Component {
             goods: []
         }
         this.cardClickHandler= this.cardClickHandler.bind(this);
-        this.cardClickMessager= this.cardClickMessager.bind(this);
-        
     }
-    cardClickHandler(componentState,selected){
-     this.props.cardHandler(componentState,selected);
+    
+    cardClickHandler(component,isBought){
+     this.props.cardHandler(component,isBought);
     }
-    cardClickMessager(element){
-        this.props.cardSelected(element);
-    }
-
+   
     componentDidMount() {
         let dataRequest = new XMLHttpRequest();  
         dataRequest.onload = () => {
             if (dataRequest.status === 200) {    
-   
                 this.setState({ goods: JSON.parse(dataRequest.response).emoji });
             }
         };
@@ -50,7 +45,6 @@ export class StickerContainer extends React.Component {
                     stars={element.stars}
                     price={element.price}
                     clickHandler={this.cardClickHandler}
-                    clickMessager={this.cardClickMessager}
                 />)
             })}
             </div>)
@@ -60,7 +54,6 @@ export class StickerContainer extends React.Component {
 }
 StickerContainer.porpTypes={
     cardHandler:PropTypes.func.isRequired,
-    cardSelected:PropTypes.func.isRequired,
 }
 
 

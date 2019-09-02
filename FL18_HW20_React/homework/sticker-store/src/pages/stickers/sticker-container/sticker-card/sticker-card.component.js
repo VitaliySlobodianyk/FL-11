@@ -18,13 +18,13 @@ export class StickerCard extends React.Component {
     this.setState({
        taken: true
      })   
-     this.props.clickMessager(this);
+     this.props.clickHandler(this,true);
   }
  
   render() {
     return (
     <>
-    <div className={classes.card} onClick={( )=>this.props.clickHandler(this)} >
+    <div className={classes.card} onClick={( )=>this.props.clickHandler(this,false)} >
       < CardPreview 
       stickers={this.props.stickers.slice(0,3)}
        />
@@ -50,8 +50,7 @@ StickerCard.propTypes = {
   title: PropTypes.string.isRequired,
   stars: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
-  clickHandler: PropTypes.func.isRequired,
-  clickMessager: PropTypes.func.isRequired,
+  clickHandler: PropTypes.func.isRequired
 }
 
 

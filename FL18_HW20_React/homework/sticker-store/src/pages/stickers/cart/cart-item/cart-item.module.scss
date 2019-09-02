@@ -3,15 +3,15 @@ $closeButtnColor: rgb(194, 35, 35);
 .item{
     display: flex;
     justify-content: space-between;
-    height: 20px;
+    height: 2em;
+    font-size: 1rem;
     align-items: center;
+    align-content: center;
 }
 .itemName{
     display: inline-block;
 }
-.price{
-    align-self: flex-start;
-}
+
 .close{
     color:$closeButtnColor ;
     cursor: pointer;
