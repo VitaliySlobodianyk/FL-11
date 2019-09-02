@@ -6,17 +6,9 @@ export class ProductInfo extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onClick = this.onClick.bind(this);
         this.state = {
             data: null
         }
-    }
-
-    onClick() {
-        this.props.data.onClick();
-        this.setState({
-            data: this.props.data
-        })
     }
 
     componentDidUpdate(prevProps) {
@@ -46,7 +38,7 @@ export class ProductInfo extends React.Component {
                         InitialDisabled={this.state.data.state.taken}
                         text={'Buy'}
                         price={this.state.data.props.price}
-                        clickHandler={this.onClick}
+                        clickHandler={this.state.data.onClick}
                     />
                    </div>   
                 </div>

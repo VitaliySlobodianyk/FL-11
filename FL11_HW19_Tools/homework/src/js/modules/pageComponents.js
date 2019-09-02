@@ -6,7 +6,10 @@ let logWorker = {
     logWorker.list.appendChild(li);
   }
 };
+//або  так  
 window.logWorker = logWorker;
+//або  так  
+export default logWorker;
 
 let messageBox = {
   box: document.querySelector('.info__field--content'),

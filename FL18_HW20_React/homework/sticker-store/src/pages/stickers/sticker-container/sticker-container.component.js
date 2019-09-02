@@ -18,8 +18,8 @@ export class StickerContainer extends React.Component {
     cardClickHandler(componentState,selected){
      this.props.cardHandler(componentState,selected);
     }
-    cardClickMessager(status,element){
-        this.props.cardSelected(status,element);
+    cardClickMessager(element){
+        this.props.cardSelected(element);
     }
 
     componentDidMount() {

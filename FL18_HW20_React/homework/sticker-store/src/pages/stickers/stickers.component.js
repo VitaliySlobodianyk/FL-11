@@ -29,15 +29,13 @@ export class Stickers extends React.Component {
         }
     }
 
-    cardBought(status, card) {
-        if (status) {
+    cardBought(card) {  
             this.setState(
                 {
-                    selectedCard: this.state.selectedCard
+                    selectedCard: card
                 }
             );
-            this.addItem(card);
-        }
+            this.addItem(card); 
     }
 
     itemAdded(bindedFunc) {
