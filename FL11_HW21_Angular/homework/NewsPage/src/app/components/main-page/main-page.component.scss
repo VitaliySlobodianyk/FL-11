@@ -1,0 +1,14 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+app-settings {
+    width: 100%;
+}
+
+app-news-container {
+    width: 80%;
+}

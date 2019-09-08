@@ -1,0 +1,7 @@
+<select name="source" (change)="getNews($event)" [value]="-1">
+    <option [disabled]="true" [selected]="true" [hidden]="true">Select Source</option>
+    <option value="All">All Sources</option>
+    <option  *ngFor="let source of titles" value={{source}}>
+     {{source}}
+    </option> 
+</select>

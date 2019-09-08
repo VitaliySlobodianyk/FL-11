@@ -1,0 +1,11 @@
+<div class="news-card">
+    <div class="image">
+        <img src="{{urlToImage}}">
+    </div>
+    <div class="info">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        <p>Date: <span>{{date|date:'short' }}</span></p>
+        <p>Author: <a [href]="this.url" target="_blank">{{this.author}}</a></p>
+    </div>
+</div>
