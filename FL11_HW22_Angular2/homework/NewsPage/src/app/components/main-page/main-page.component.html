@@ -1,0 +1,5 @@
+<div class="main">
+    <app-header [title]="newsTheme"></app-header>
+    <app-settings (navigate)="switchAddPage()" (sourceSelected)="this.loadNews($event)" (searchInitialized)="this.filterNews($event)" [buttonDisabled]="this.buttonDisabled"></app-settings>
+    <app-news-container [news]="news"></app-news-container>
+</div>

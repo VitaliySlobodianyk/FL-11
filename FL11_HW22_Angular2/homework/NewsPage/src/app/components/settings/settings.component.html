@@ -1,0 +1,5 @@
+<div class="settings">
+    <app-sources [getNews]="onSourceSelected"></app-sources>
+    <app-search-bar [searchNews]="onSearch"></app-search-bar>
+    <app-button text="Add article" (clickHandler)="onNavigate()" routerLink="/create" [disabled]="this.buttonDisabled"></app-button>
+</div>

@@ -1,0 +1,22 @@
+.news-card {
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    width: 100%;
+    background-color: #80808042;
+    .image {
+        margin-top: 1%;
+        width: 49%;
+        img {
+            width: 100%;
+        }
+    }
+    .info {
+        width: 49%;
+        padding: 0% 1%;
+        h2 {
+            margin: 0;
+        }
+    }
+}

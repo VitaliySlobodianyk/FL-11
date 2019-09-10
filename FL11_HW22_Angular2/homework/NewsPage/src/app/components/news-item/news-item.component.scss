@@ -1,0 +1,40 @@
+.new-item {
+    display: flex;
+    padding: 1%;
+    width: 100%;
+}
+
+.new-item:hover {
+    outline: 3px solid #7fffd4;
+}
+
+.image {
+    width: 30%;
+    height: 250px;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.info {
+    padding: 1%;
+    height: 100%;
+    width: 55%;
+}
+
+.addInfo {
+    display: flex;
+    width: 15%;
+}
+
+.text-button {
+    color: grey;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text-button:hover {
+    color: #7fffd4;
+}

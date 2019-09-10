@@ -1,0 +1,22 @@
+<div class="new-item" (click)="redirect($event)">
+    <div class="image">
+        <img src={{newItem.urlToImage}}>
+    </div>
+    <div class="info">
+        <h2>
+            {{newItem.title}}
+        </h2>
+        <a *ngIf="!this.readMoreEnabled; else elseBlock" class="text-button" (click)="this.readMoreEnabled = true">Read More...</a>
+
+        <ng-template #elseBlock>
+            <div class="info-description">
+                <p class="description"> {{newItem.description}} </p>
+                <a class="text-button" (click)="this.readMoreEnabled=false">Hide</a>
+            </div>
+        </ng-template>
+
+    </div>
+    <div class="addInfo">
+        <p>{{newItem.publishedAt|date:'short'}}</p>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+    "news": [{
+            "title": "Technologies",
+            "isWebResource": true,
+            "url": "https://newsapi.org/v2/top-headlines?country=ua&category=technology&apiKey=",
+            "source": []
+        },
+        {
+            "title": "Science",
+            "isWebResource": true,
+            "url": "https://newsapi.org/v2/top-headlines?country=ua&category=science&apiKey=",
+            "source": []
+        },
+        {
+            "title": "Local News",
+            "isWebResource": false,
+            "source": []
+        }
+    ]
+}
