@@ -1,31 +1,31 @@
 <div class="add-form">
-    <form action="" class="form" #addForm="ngForm">
+    <form action="" class="form" #addForm="ngForm" (submit)="onSubmit($event)">
         <div class="col">
             <fieldset>
                 <legend>Heading</legend>
-                <input type="text" name="" id="">
+                <input type="text" name="title" id="" [(ngModel)]="this.news.title">
             </fieldset>
             <fieldset>
-                <legend>Short Descrption</legend>
-                <input type="text" name="" id="">
+                <legend>Photo Link</legend>
+                <input type="url" name="urlToPhoto" id="" [(ngModel)]="this.news.urlToImage">
             </fieldset>
             <fieldset>
                 <legend>Content</legend>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
+                <textarea name="content" id="" cols="30" rows="10" [(ngModel)]="this.news.description"></textarea>
             </fieldset>
         </div>
         <div class="col">
             <fieldset>
                 <legend>Date</legend>
-                <input type="date" name="" id="">
+                <input type="date" name="date" id="" [(ngModel)]="this.news.publishedAt">
             </fieldset>
             <fieldset>
                 <legend>Author</legend>
-                <input type="text" name="" id="">
+                <input type="text" name="author" id="" [(ngModel)]="this.news.author">
             </fieldset>
             <fieldset>
                 <legend>Source url</legend>
-                <input type="url" name="" id="">
+                <input type="url" name="url" id="" [(ngModel)]="this.news.url">
             </fieldset>
             <div class="buttons">
                 <input type="submit" value="Save">

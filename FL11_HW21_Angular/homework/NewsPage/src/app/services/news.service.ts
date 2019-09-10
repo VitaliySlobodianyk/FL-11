@@ -102,8 +102,11 @@ export class NewsService {
     }
     return (newItem.source.find(el => el.url === url));
   }
-  pushNews(news: NewItem, source: NewsSource) {
-        
-    
+  pushNews(news: NewItem) {
+    if(news) {
+      console.log(news);
+      const newsSource = this.searchByTitle(news.theme);
+      newsSource.source.unshift(news);
+    }   
   }
 }
