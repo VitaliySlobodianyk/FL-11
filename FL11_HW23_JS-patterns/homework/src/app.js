@@ -1,16 +1,16 @@
-let random = function(start, end) {
-    function getRandomIntInclusive(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    return getRandomIntInclusive(start, end);
+const random = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
 
 class User {
     constructor(name, orderTotalPrice) {
         this.getName = () => name;
         this.orderTotalPrice = () => orderTotalPrice;
+        this.discount = false;
+        this.bonuses = false;
     }
     makeOrder() {
         return ` Name: ${this.getName()}  Price: ${this.orderTotalPrice()}UAH `;
@@ -19,6 +19,7 @@ class User {
 
 class Discount {
     constructor(target, discount, type) {
+
         this.user = target;
         this.discount = discount;
         this.typeofDiscount = type;
@@ -37,17 +38,20 @@ class getDiscount {
     constructor(target) {
         this.user = target;
         this.getName = target.getName;
-
-        let date = new Date('2019-09-14T01:10:00');
-
-        if (date.getDay() === 6 || date.getDay() === 0) {
-            this.user = new Discount(this.user, random(0, 20), "weekend");
+        this.discount = target.discount;
+        this.orderTotalPrice = target.orderTotalPrice;
+        if (!this.discount) {
+            let date = new Date('2019-09-14T01:10:00');
+            if (date.getDay() === 6 || date.getDay() === 0) {
+                this.user = new Discount(this.user, random(0, 20), "weekend");
+            }
+            if (date.getHours() <= 23 || date.getDay() >= 6) {
+                this.user = new Discount(this.user, random(0, 5), "night");
+            }
+            this.orderTotalPrice = this.user.orderTotalPrice;
+            this.discount = true;
         }
-        if (date.getHours() <= 23 || date.getDay() >= 6) {
-            this.user = new Discount(this.user, random(0, 5), "night");
-        }
 
-        this.orderTotalPrice = this.user.orderTotalPrice;
     }
     makeOrder() {
         return this.user.makeOrder();
@@ -58,23 +62,30 @@ class setBonus {
     constructor(target, bonusPrice) {
         this.user = target;
         this.getName = target.getName;
+        this.getName = target.getName;
+        this.bonuses = target.bonuses;
         this.orderTotalPrice = target.orderTotalPrice;
         this.priceOfBonus = () => bonusPrice;
-        console.log()
-        this.bonusesToAdd = parseInt(this.orderTotalPrice() / 100);
+
+        if (!this.bonuses) {
+            this.bonusesToAdd = parseInt(this.orderTotalPrice() / 100);
+            this.bonuses = true;
+        }
     }
     makeOrder() {
-        return `${this.user.makeOrder()} \n 
-        Amount if bonuses added : ${this.bonusesToAdd} 
+        if (this.bonusesToAdd) {
+            return `${this.user.makeOrder()} \n 
+        Amount of bonuses added : ${this.bonusesToAdd} 
         At sum of ${this.bonusesToAdd * this.priceOfBonus()}UAH `;
+
+        } else {
+            return this.user.makeOrder();
+        }
     }
 }
 
 let petro = new User("Petro", 1500);
-console.log(petro.makeOrder());
-
 petro = new getDiscount(petro);
-console.log(petro.makeOrder());
-
 petro = new setBonus(petro, 5);
+
 console.log(petro.makeOrder());

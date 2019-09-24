@@ -1,0 +1,49 @@
+@import './vars.scss';
+
+.user_table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 2fr repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    width: 100%;
+    text-align: center;
+}
+
+.users__header {
+    box-sizing: border-box;
+    padding: 2% 0%;
+    background-color: $headerColor;
+    color: $primaryColor;
+}
+
+#itemsContainer {
+    box-sizing: border-box;
+    width: 100%;
+}
+.text_middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user {
+    padding: 1% 0%;
+   
+    button.remove {
+        background-color: $dangerColor;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 30%;
+        width: 60%;
+        height: 30%;
+        border: none;
+        box-shadow: 2px 2px 3px #000;
+
+        &:hover {
+            background-color: darken($color:$dangerColor, $amount: 20);
+        }
+    }
+}
+
+.user:nth-of-type(odd) {
+    background-color: $secondaryColor;
+}

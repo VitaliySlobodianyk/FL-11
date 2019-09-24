@@ -1,0 +1,30 @@
+// header style
+.header{
+    background-color: $header-color;
+    background-image: $headerBackgroungImage;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10% ;
+    &__heading{
+        font-size: rem(35);
+        font-weight: bold;
+      
+        &--rule{
+            align-self: center;
+            font-size: rem(25);
+            
+            font-weight: bold;
+        }
+    }
+    &__rules{
+        font-size: rem(25);
+        align-self: flex-end;
+        margin-right: 15%;
+        margin-bottom: 2%;
+       
+        font-weight: bold;
+    }
+}
+
